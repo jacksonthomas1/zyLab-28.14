@@ -49,12 +49,23 @@ int ShoppingCart::GetNumItemsInCart() {
 } 
 
 double ShoppingCart::GetCostOfCart() { 
-  int totalCost;
+  double totalCost;
   for (int i = 0; i < cartItems.length(); i++) { 
     totalCost = totalCost + (cartItems.at(i).GetPrice() * cartItems.at(i).getQuantity());
   }
   return totalCost; 
 } 
+
+//needs work 
+void ShoppingCart::PrintTotal() {
+}
+
+//needs work 
+void ShoppingCart::PrintDescriptions() { 
+} 
+
+
+
 
 
 
