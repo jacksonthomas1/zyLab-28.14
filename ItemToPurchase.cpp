@@ -3,26 +3,62 @@ using namespace std;
 
 #include "ItemToPurchase.h"
 
-ItemToPurchase::ItemToPurchase(string newItemName, int newItemPrice, int newItemQuantity) { 
-   itemName = newItemName; 
-   itemPrice = newItemPrice; 
-   itemQuantity = newItemQuantity; 
-} 
-void ItemToPurchase::SetName(string newName) { 
-   itemName = newName;
+ItemToPurchase::ItemToPurchase() { 
+   itemName = ""; 
+   itemDescription = "";
+   itemPrice = 0; 
+   itemQuantity = 0;
 }
-string ItemToPurchase::GetName() { 
+
+
+ItemToPurchase::ItemToPurchase(string name, string description, 
+                              int price, int quantity) { 
+   itemName = name; 
+   itemDescription = description; 
+   itemPrice = price; 
+   itemQuantity = quantity;
+} 
+
+void ItemToPurchase::SetName(string name) { 
+   itemName = name; 
+} 
+
+void ItemToPurchase::SetDescription(string description) { 
+   itemDescription = description;
+} 
+
+void ItemToPurchase::SetPrice(int price) { 
+   itemPrice = price;
+} 
+
+void ItemToPurchase::SetQuantity(int quantity) { 
+   itemQuantity = quantity; 
+} 
+
+string ItemToPurchase::GetName() const { 
    return itemName; 
 } 
-void ItemToPurchase::SetPrice(int newPrice) { 
-   itemPrice = newPrice; 
+
+string ItemToPurchase::GetDescription() const { 
+   return itemDescription; 
 } 
-int ItemToPurchase::GetPrice() { 
+
+int ItemToPurchase::GetPrice() const { 
    return itemPrice; 
 } 
-void ItemToPurchase::SetQuantity(int newQuantity) { 
-   itemQuantity = newQuantity; 
-} 
-int ItemToPurchase::GetQuantity() { 
+
+int ItemToPurchase::GetQuantity() const { 
    return itemQuantity; 
 } 
+
+void ItemToPurchase::PrintItemCost() { 
+   cout << itemName << " " << itemQuantity << " @  $" << itemPrice << " = $" << itemPrice * itemQuantity;
+}
+
+void ItemToPurchase::PrintItemDescription() { 
+   cout << itemName << ": " << itemDescription;
+}
+
+
+
+
