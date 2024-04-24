@@ -100,7 +100,7 @@ double ShoppingCart::GetCostOfCart() {
   return totalCost; 
 } 
 
-//needs work 
+//needs work
 void ShoppingCart::PrintTotal() {
   cout << customerName << "'s Shopping Cart - " << customerDate << endl; 
   cout << "Number of items: " << cartItems.length() << endl;
@@ -110,10 +110,13 @@ void ShoppingCart::PrintTotal() {
   } 
   for (int i = 0; i < cartItems.length() << i++) { 
     int totalPrice = 0;
-    totalPrice = totalPrice + cartItems.at(i).GetPrice() * cartItems.at(i).GetQuantity();
+    totalPrice = totalPrice + (cartItems.at(i).GetPrice() * cartItems.at(i).GetQuantity());
   }
   cout << endl; 
   cout << "Total: " << totalPrice;
+   if (cartItems.length() == 0) { 
+    cout << "SHOPPING CART IS EMPTY"; 
+  }
 }
   
 }
