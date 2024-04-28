@@ -33,12 +33,11 @@ void ShoppingCart::RemoveItem(string name) {
         cartItems.at(i).erase();
         break;
       }
+      if (cartItems.at(i).GetName() != name) { 
+        cout << "Item not found in cart. Nothing removed."; 
+      }
   }
-  for (int i = 0; i < cartItems.length(); i++) { 
-    if (cartItems.at(i).GetName() != name) { 
-      cout << "Item not found in cart. Nothing removed."; 
-    }
-} 
+
 
 //also needs work 
 void ShoppingCart::ModifyItem(ItemToPurchase item) { 
