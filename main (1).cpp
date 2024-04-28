@@ -24,13 +24,13 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
       string itemDescription1; 
       int itemPrice1;
       int itemQuantity1;
-      cout << "Enter item name: " << endl;
+      cout << "Enter the item name: " << endl;
       cin >> itemName1; 
-      cout << "Enter item description: " << endl; 
+      cout << "Enter the item description: " << endl; 
       cin >> itemDescription1; 
-      cout << "Enter item price: " << endl; 
+      cout << "Enter the item price: " << endl; 
       cin >> itemPrice1; 
-      cout << "Enter item quantity: " << endl; 
+      cout << "Enter the item quantity: " << endl; 
       cin >> itemQuantity1; 
       item1.SetName(itemName1); 
       item1.SetDescription(itemDescription1); 
@@ -52,7 +52,9 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
       //no idea how to code this tbh  
    } 
    if (option == 'i') { 
-      theCart.PrintDescriptions();
+      for (int i = 0; i < theCart.size(); i++) { 
+         thatCart.PrintDescriptions();
+      }
    } 
    if (option == 'o') { 
       theCart.PrintTotal();
