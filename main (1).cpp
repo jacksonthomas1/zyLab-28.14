@@ -18,14 +18,38 @@ void PrintMenu() {
 void ExecuteMenu(char option, ShoppingCart& theCart) {
 
    if (option == 'a') { 
-      theCart.AddItem(); 
+     
+      ItemToPurchase item1;
+      string itemName1;
+      string itemDescription1; 
+      int itemPrice1;
+      int itemQuantity1;
+      cout << "Enter item name: " << endl;
+      cin >> itemName1; 
+      cout << "Enter item description: " << endl; 
+      cin >> itemDescription1; 
+      cout << "Enter item price: " << endl; 
+      cin >> itemPrice1; 
+      cout << "Enter item quantity: " << endl; 
+      cin >> itemQuantity1; 
+      item1.SetName(itemName1); 
+      item1.SetDescription(itemDescription1); 
+      item1.SetPrice(itemPrice1); 
+      item1.setQuantity1(itemQuantity1);
+      theCart.AddItem(item1); 
+   
    } 
    if (option == 'd') { 
-      theCart.RemoveItem();
+    
+      string itemName2;
+      cout << "What item would you like to remove? " << endl; 
+      cin >> itemName2; 
+      theCart.RemoveItem(itemName2);
+      
    } 
    //needs work
    if (option == 'c') { 
-      theCart.ModifyItem(); 
+      //no idea how to code this tbh  
    } 
    if (option == 'i') { 
       theCart.PrintDescriptions();
