@@ -37,6 +37,7 @@ void ShoppingCart::RemoveItem(string name) {
         cout << "Item not found in cart. Nothing removed."; 
       }
   }
+}
 
 
 //also needs work 
@@ -117,8 +118,7 @@ void ShoppingCart::PrintTotal() {
     cout << "SHOPPING CART IS EMPTY"; 
   }
 }
-  
-}
+
 
 void ShoppingCart::PrintDescriptions() { 
   for (int i = 0; i < cartItems.length(); i++) { 
