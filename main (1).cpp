@@ -5,13 +5,15 @@ using namespace std;
 #include "ShoppingCart.h"
 
 void PrintMenu() {
+   
    cout << "MENU" << endl; 
    cout << "a - Add item to cart" << endl; 
    cout << "d - Remove item from cart" << endl; 
    cout << "c - Change item quantity" << endl; 
-   cout << "i - Output items' description" << endl; 
+   cout << "i - Output items' descriptions" << endl; 
    cout << "o - Output shopping cart" << endl;
    cout << "q - Quit" << endl;
+   
 }
 
 //needs work 
@@ -25,9 +27,9 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
       int itemPrice1;
       int itemQuantity1;
       cout << "Enter the item name: " << endl;
-      cin >> itemName1; 
+      getline(cin, itemName1);
       cout << "Enter the item description: " << endl; 
-      cin >> itemDescription1; 
+      getline(cin, itemDescription1);
       cout << "Enter the item price: " << endl; 
       cin >> itemPrice1; 
       cout << "Enter the item quantity: " << endl; 
@@ -35,7 +37,7 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
       item1.SetName(itemName1); 
       item1.SetDescription(itemDescription1); 
       item1.SetPrice(itemPrice1); 
-      item1.setQuantity1(itemQuantity1);
+      item1.SetQuantity(itemQuantity1);
       theCart.AddItem(item1); 
    
    } 
@@ -43,23 +45,31 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
     
       string itemName2;
       cout << "What item would you like to remove? " << endl; 
-      cin >> itemName2; 
+      getline(cin, itemName2); 
       theCart.RemoveItem(itemName2);
       
    } 
    //needs work
    if (option == 'c') { 
-      //no idea how to code this tbh  
+      
+      ItemToPurchase newItem;
+      int newQuantity;
+      string itemName;
+      cout << "Enter the item name: " << endl; 
+      getline(cin, itemName);  
+      cout << "Enter the new item quantity: " << endl; 
+      cin >> newQuantity; 
+      
    } 
    if (option == 'i') { 
-      for (int i = 0; i < theCart.size(); i++) { 
-         thatCart.PrintDescriptions();
-      }
+         theCart.PrintDescriptions();
    } 
    if (option == 'o') { 
+      cout << "OUTPUT SHOPPING CART" << endl;
       theCart.PrintTotal();
+      cout << endl;
+      
    } 
-   //needs work
    if (option == 'q') { 
    }
       
@@ -73,14 +83,42 @@ int main() {
    string customersName; 
    string customerDate; 
 
-   cout << "Enter customers's name: " << endl; 
-   cin >> customersName; 
+   cout << "Enter customer's name:" << endl; 
+   getline(cin, customersName); 
 
-   cout << "Enter today's date: " << endl;
-   cin  >> customerDate;
+   cout << "Enter today's date:" << endl;
+   getline (cin, customerDate);
+   
+   cout << endl; 
 
-   cout << "Customer name: " << customerName << endl; 
+   cout << "Customer name: " << customersName << endl; 
    cout << "Today's date: " << customerDate << endl;
+   cout << endl;
+   
+   char userChoice;
+   PrintMenu();
+   cout << endl;
+   cout << "Choose an option:" << endl; 
+   cin >> userChoice; 
+   //a,d,c,i,o,q
+   if ((userChoice != 'a') && (userChoice != 'd') && (userChoice != 'c') && (userChoice != 'i') 
+                              && (userChoice != 'o') && (userChoice != 'q')) {
+      while (userChoice != 'q') { 
+         cout << "Choose an option:" << endl; 
+         cin >> userChoice;
+      }
+   }
+   if ((userChoice == 'a') || (userChoice == 'd') || (userChoice == 'c') || (userChoice == 'i') 
+                              || (userChoice == 'o')) {
+      while (userChoice != 'q') { 
+         ExecuteMenu(userChoice, cartItems);
+         PrintMenu();
+         cout << endl;
+         cout << "Choose an option:" << endl; 
+         cin >> userChoice; 
+      } 
+    } 
+                              
    
    return 0;
 }
